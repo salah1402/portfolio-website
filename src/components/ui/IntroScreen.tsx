@@ -64,7 +64,7 @@ export default function IntroScreen() {
           aria-label="Intro loading screen"
         >
           {/* Top-left: Diamond + SALAH_14 (identical to Navbar) */}
-          <div className="absolute top-8 left-8 md:left-16 flex items-center gap-3">
+          <div className="absolute top-6 left-6 md:top-8 md:left-16 flex items-center gap-3">
             <span className="inline-block w-2.5 h-2.5 rotate-45 bg-accent" aria-hidden="true" />
             <span className="text-label">SALAH_14</span>
           </div>
@@ -75,53 +75,59 @@ export default function IntroScreen() {
             transition={{ duration: isFastExit ? 0.3 : 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col items-center justify-center text-center px-4"
           >
-            <h1 className="font-display font-bold text-[clamp(56px,8vw,120px)] leading-[0.95] text-fg tracking-tight">
+            <h1 className="font-display font-bold text-[clamp(44px,11vw,120px)] leading-[0.95] text-fg tracking-tight">
               SALAH_14
             </h1>
             <div className="w-24 h-px bg-fg/30 mt-4 mx-auto" />
-            <p className="font-display text-[clamp(14px,1.2vw,18px)] tracking-[0.3em] uppercase text-muted mt-6">
+            <p className="font-display text-[clamp(13px,1.2vw,18px)] tracking-[0.3em] uppercase text-muted mt-6">
               PORTFOLIO
             </p>
 
             {/* Below centered block: Counter 0% → 100% */}
-            <div className="mt-16">
+            <div className="mt-12 md:mt-16">
               <p className="font-display font-semibold text-[clamp(32px,4vw,56px)] leading-none text-fg tabular-nums">
                 {progress}%
               </p>
             </div>
           </motion.div>
 
-          {/* Bottom row: 3-column grid for true center alignment */}
-          <div className="absolute bottom-8 left-8 right-8 md:left-16 md:right-16 grid grid-cols-3 items-center">
-            {/* Left */}
-            <div className="text-label text-left">
+          {/* Bottom row: gracefully reflows on mobile without overflowing */}
+          <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-16 md:right-16 flex flex-col items-center gap-3 sm:grid sm:grid-cols-3 sm:items-center">
+            {/* Left (Desktop) */}
+            <div className="hidden sm:block text-label text-left">
               THANJAVUR
             </div>
 
-            {/* Center — truly centered, not affected by side widths */}
+            {/* Center — loader */}
             <div className="flex justify-center">
-              <div className="inline-flex items-center gap-3">
+              <div className="inline-flex items-center gap-2 sm:gap-3">
                 <span
-                  className="inline-block w-3 h-3 bg-accent"
+                  className="inline-block w-2.5 h-2.5 sm:w-3 sm:h-3 bg-accent"
                   style={{ transform: 'rotate(45deg)' }}
                 />
                 <div className="flex gap-1">
                   {Array.from({ length: 10 }).map((_, i) => (
                     <span
                       key={i}
-                      className={`inline-block w-3 h-3 transition-colors duration-200 ${
+                      className={`inline-block w-2.5 h-2.5 sm:w-3 sm:h-3 transition-colors duration-200 ${
                         i < Math.floor(progress / 10) ? 'bg-accent' : 'bg-border/40'
                       }`}
                     />
                   ))}
                 </div>
-                <span className="text-label tabular-nums">{progress}%</span>
+                <span className="text-label tabular-nums text-xs">{progress}%</span>
               </div>
             </div>
 
-            {/* Right */}
-            <div className="text-label text-right">
+            {/* Right (Desktop) */}
+            <div className="hidden sm:block text-label text-right">
               SYSTEM INITIALIZATION
+            </div>
+
+            {/* Mobile Sub-row */}
+            <div className="flex sm:hidden w-full justify-between items-center text-[10px] text-label px-2 opacity-80">
+              <span>THANJAVUR</span>
+              <span>SYSTEM INITIALIZATION</span>
             </div>
           </div>
         </motion.div>

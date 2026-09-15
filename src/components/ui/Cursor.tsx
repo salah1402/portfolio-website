@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from 'react';
 export default function Cursor() {
   const [isDisabled] = useState(() => {
     if (typeof window === 'undefined') return true;
-    const isTouch = window.matchMedia('(hover: none)').matches;
+    const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     return isTouch || prefersReduced;
   });
@@ -74,7 +74,7 @@ export default function Cursor() {
     <div
       ref={cursorRef}
       aria-hidden="true"
-      className={`fixed top-0 left-0 pointer-events-none z-[100] rounded-full transition-[width,height,background-color,border-color,opacity] duration-300 ease-out will-change-transform ${
+      className={`hidden md:block fixed top-0 left-0 pointer-events-none z-[100] rounded-full transition-[width,height,background-color,border-color,opacity] duration-300 ease-out will-change-transform ${
         isVisible ? 'opacity-100' : 'opacity-0'
       } ${
         isInteractive

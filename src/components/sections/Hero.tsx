@@ -24,35 +24,36 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center px-8 md:px-16">
+    <section className="relative min-h-[100dvh] flex items-center px-6 sm:px-8 md:px-16 pt-28 pb-16 md:pt-0 md:pb-0">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={introExited ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
         transition={{ duration: 0.7, ease: CUBIC_EASE }}
-        className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center"
+        className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-center"
       >
         {/* LEFT — 7 cols */}
         <div className="md:col-span-7">
-          <p className="text-label">PORTFOLIO — 2025</p>
+          <p className="text-label">PORTFOLIO — 2026</p>
 
-          <h1 className="text-serif text-[clamp(48px,6.5vw,96px)] leading-[0.92] tracking-[-0.02em] mt-6">
+          <h1 className="text-serif text-[clamp(42px,7.5vw,96px)] leading-[0.92] tracking-[-0.02em] mt-5 md:mt-6">
             MOHAMED<br />SALAUDDIN A
           </h1>
 
-          <div className="flex items-center gap-4 mt-8 text-label">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 mt-6 sm:mt-8 text-label">
             <span>3D WEB ENGINEER</span>
-            <span className="w-8 h-px bg-fg/30" />
+            <span className="hidden sm:inline-block w-8 h-px bg-fg/30" />
+            <span className="sm:hidden text-fg/30">·</span>
             <span>FULL STACK / AI ENGINEER</span>
           </div>
 
           <p className="text-label mt-3 opacity-70">
-            AVAILABLE FOR OPPORTUNITIES · 2025
+            AVAILABLE FOR OPPORTUNITIES · 2026
           </p>
         </div>
 
         {/* RIGHT — 5 cols, photo block flush to right */}
-        <div className="md:col-span-5 flex justify-center md:justify-end">
-          <div className="relative aspect-[4/5] w-full max-w-md rounded-2xl overflow-hidden border border-border">
+        <div className="md:col-span-5 flex justify-center md:justify-end mt-4 md:mt-0">
+          <div className="relative aspect-[4/5] w-full max-w-[320px] sm:max-w-sm md:max-w-md rounded-2xl overflow-hidden border border-border shadow-sm">
             <img
               src="/portrait.jpg"
               alt="Mohamed Salauddin A"
@@ -91,7 +92,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Scroll cue — bottom-left */}
-      <div className="absolute bottom-8 left-8 md:left-16 text-label">
+      <div className="absolute bottom-6 left-6 md:bottom-8 md:left-16 text-label">
         <a href="#about" className="hover:text-fg transition-colors">
           SCROLL ↓
         </a>

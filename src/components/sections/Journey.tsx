@@ -11,20 +11,20 @@ interface TimelineItemProps {
 
 function TimelineItem({ index, title, align, body, dotRef }: TimelineItemProps) {
   return (
-    <div className="relative grid grid-cols-12 items-start gap-8">
-      {/* Node dot on center line aligned with cap-height */}
+    <div className="relative grid grid-cols-12 items-start gap-4 md:gap-8">
+      {/* Node dot on left on mobile, center line on desktop aligned with cap-height */}
       <div
         ref={dotRef}
-        className="absolute left-1/2 -translate-x-1/2 top-2 z-10"
+        className="absolute left-3 sm:left-4 md:left-1/2 -translate-x-1/2 top-2 z-10"
       >
         <div className="w-3 h-3 rounded-full bg-bg border-2 border-accent" />
       </div>
 
-      {/* Card — LEFT or RIGHT based on align */}
-      <div className={`col-span-6 ${align === 'right' ? 'col-start-7' : ''}`}>
-        <div className="flex items-baseline gap-6">
+      {/* Card — single column with left gutter on mobile, LEFT or RIGHT on desktop */}
+      <div className={`col-span-12 md:col-span-6 pl-8 sm:pl-10 md:pl-0 ${align === 'right' ? 'md:col-start-7' : ''}`}>
+        <div className="flex items-baseline gap-4 sm:gap-6">
           <span className="text-sm opacity-70 font-sans tracking-[0.18em]">{index}</span>
-          <h3 className="font-display font-bold uppercase text-[clamp(34px,4.2vw,62px)] leading-[1] tracking-[-0.02em] hover:text-accent transition-colors">
+          <h3 className="font-display font-bold uppercase text-[clamp(28px,4.2vw,62px)] leading-[1.05] md:leading-[1] tracking-[-0.02em] hover:text-accent transition-colors">
             {title}
           </h3>
         </div>
@@ -96,12 +96,12 @@ export default function Journey() {
     <section
       id="journey"
       ref={sectionRef}
-      className="relative pt-14 md:pt-16 pb-8 md:pb-12 px-8 md:px-16"
+      className="relative pt-14 md:pt-16 pb-8 md:pb-12 px-6 sm:px-8 md:px-16"
     >
       <div ref={containerRef} className="max-w-5xl mx-auto relative">
         {/* Line spans strictly from first node (01) to last node (04) */}
         <div
-          className={`absolute left-1/2 -translate-x-1/2 w-px bg-border pointer-events-none overflow-hidden transition-opacity duration-200 ${
+          className={`absolute left-3 sm:left-4 md:left-1/2 -translate-x-1/2 w-px bg-border pointer-events-none overflow-hidden transition-opacity duration-200 ${
             lineBounds ? 'opacity-100' : 'opacity-0'
           }`}
           style={
@@ -136,7 +136,7 @@ export default function Journey() {
                   interfaces that move.
                 </p>
                 <p className="text-label mt-4 opacity-70">
-                  THANJAVUR, TN · AVAILABLE 2025
+                  THANJAVUR, TN · AVAILABLE 2026
                 </p>
               </>
             }

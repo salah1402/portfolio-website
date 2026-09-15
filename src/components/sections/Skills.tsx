@@ -26,25 +26,25 @@ const EXPLORING = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-20 md:py-28 px-8 md:px-16">
+    <section id="skills" className="relative py-16 md:py-28 px-6 sm:px-8 md:px-16">
       <div className="max-w-7xl mx-auto">
-        <div className="w-full border-t border-border/60 mb-10" />
+        <div className="w-full border-t border-border/60 mb-8 md:mb-10" />
 
         {/* Header */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-12 mb-10 md:mb-12">
           <div className="md:col-span-8">
             <p className="text-label">03 — Stack</p>
-            <h2 className="text-serif text-[clamp(36px,4.5vw,60px)] leading-[1.05] mt-3">
+            <h2 className="text-serif text-[clamp(34px,4.5vw,60px)] leading-[1.05] mt-3">
               Tools & Languages
             </h2>
           </div>
           <div className="md:col-span-4 md:text-right">
-            <p className="text-label md:mt-14">TECHNICAL PROFICIENCY</p>
+            <p className="text-label mt-1 md:mt-14">TECHNICAL PROFICIENCY</p>
           </div>
         </div>
 
         {/* Two columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
           {/* Tools & Frameworks */}
           <div>
             <p className="text-label mb-6">TOOLS & FRAMEWORKS</p>
@@ -79,7 +79,7 @@ export default function Skills() {
         </div>
 
         {/* Currently Exploring */}
-        <div className="mt-20 pt-10 border-t border-border/40">
+        <div className="mt-14 md:mt-20 pt-8 md:pt-10 border-t border-border/40">
           <p className="text-label">CURRENTLY EXPLORING</p>
           <div className="flex flex-wrap gap-2 mt-4">
             {EXPLORING.map((tag) => (
