@@ -21,10 +21,10 @@ function TimelineItem({ index, title, align, body, dotRef }: TimelineItemProps) 
       </div>
 
       {/* Card — single column with left gutter on mobile, LEFT or RIGHT on desktop */}
-      <div className={`col-span-12 md:col-span-6 pl-8 sm:pl-10 md:pl-0 ${align === 'right' ? 'md:col-start-7' : ''}`}>
+      <div className={`col-span-12 md:col-span-6 pl-8 sm:pl-10 pr-4 md:pl-0 md:pr-0 ${align === 'right' ? 'md:col-start-7' : ''}`}>
         <div className="flex items-baseline gap-4 sm:gap-6">
           <span className="text-sm opacity-70 font-sans tracking-[0.18em]">{index}</span>
-          <h3 className="font-display font-bold uppercase text-[clamp(28px,4.2vw,62px)] leading-[1.05] md:leading-[1] tracking-[-0.02em] hover:text-accent transition-colors">
+          <h3 className="font-display font-bold uppercase text-[clamp(24px,4vw,62px)] leading-[1.05] md:leading-[1] tracking-[-0.02em] hover:text-accent transition-colors">
             {title}
           </h3>
         </div>

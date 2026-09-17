@@ -24,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center px-6 sm:px-8 md:px-16 pt-28 pb-16 md:pt-0 md:pb-0">
+    <section className="relative min-h-[100dvh] flex items-center px-6 sm:px-8 md:px-16 pt-24 pb-10 md:pt-0 md:pb-0">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={introExited ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
@@ -52,8 +52,8 @@ export default function Hero() {
         </div>
 
         {/* RIGHT — 5 cols, photo block flush to right */}
-        <div className="md:col-span-5 flex justify-center md:justify-end mt-4 md:mt-0">
-          <div className="relative aspect-[4/5] w-full max-w-[320px] sm:max-w-sm md:max-w-md rounded-2xl overflow-hidden border border-border shadow-sm">
+        <div className="md:col-span-5 flex flex-col items-center md:items-end justify-center md:justify-end mt-4 md:mt-0">
+          <div className="relative aspect-[4/5] w-full max-w-[320px] sm:max-w-sm md:max-w-md max-h-[70vh] md:max-h-none rounded-2xl overflow-hidden border border-border shadow-sm">
             <img
               src="/portrait.jpg"
               alt="Mohamed Salauddin A"
@@ -88,12 +88,19 @@ export default function Hero() {
               </p>
             </div>
           </div>
+
+          {/* Mobile scroll cue — placed below photo block (relative, clearly visible without scrolling) */}
+          <div className="mt-4 md:hidden text-label w-full max-w-[320px] sm:max-w-sm text-left">
+            <a href="#journey" className="hover:text-fg transition-colors">
+              SCROLL ↓
+            </a>
+          </div>
         </div>
       </motion.div>
 
-      {/* Scroll cue — bottom-left */}
-      <div className="absolute bottom-6 left-6 md:bottom-8 md:left-16 text-label">
-        <a href="#about" className="hover:text-fg transition-colors">
+      {/* Desktop scroll cue — bottom-left */}
+      <div className="hidden md:block absolute bottom-8 left-16 text-label">
+        <a href="#journey" className="hover:text-fg transition-colors">
           SCROLL ↓
         </a>
       </div>
